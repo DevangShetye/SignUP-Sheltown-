@@ -1,0 +1,182 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Form</title>
+    <link rel="stylesheet" type="text/css" href="signupstyle.css">
+
+</head>
+
+<body class="background">
+    <div class="book">
+        <div class="page-one background">
+            <div class="acount-info">
+                <form>
+                    <input type="text" class="form-control" placeholder="USER NAME" name="">
+                    <input type="password" class="form-control" placeholder="PASSWORD" name="">
+                    <input type="password" class="form-control" placeholder="SUBMITT PASSWORD" name="">
+                    <button class="btn btn-primary text-uppercase"><i class="fa fa-arrow-left"></i> send</button>
+                </form>
+            </div>
+            <div class="back">
+            </div>
+        </div>
+
+        <div class="page-two background">
+            <div class="back">
+                <h2 class="text-uppercase text-center text-success">sign up</h2>
+                <h3 class="text-center text-uppercase text-success">account information</h3>
+                <div class="validation"></div>
+            </div>
+        </div>
+
+        <div class="page-three background">
+
+            <div class="personal-info">
+
+
+                <form onsubmit="return verifyPassword()">
+                    <!-- <h2 class="text-uppercase text-center1 text-success">Create Account</h2> -->
+                    <span class="text-center2"></span>
+                    <div class="form-item1">
+                        <p class="formLabel1">User Name</p>
+                        <input type="text" class="form-style1" autocomplete="off" />
+                    </div>
+                    <div class="form-item1">
+                        <p class="formLabel1">Email</p>
+                        <input type="mail" class="form-style1" autocomplete="off" />
+                    </div>
+                    <div class="form-item1">
+                        <p class="formLabel1">First Name</p>
+                        <input type="text" class="form-style1" autocomplete="off" />
+                    </div>
+                    <div class="form-item1">
+                        <p class="formLabel1">Last Name</p>
+                        <input type="text" class="form-style1" autocomplete="off" />
+                    </div>
+                    <div class="form-item1">
+                        <p class="formLabel1">Confirm Password</p>
+                        <input type="text" class="form-style1" autocomplete="off" />
+                    </div>
+                    <div class="form-item1">
+                        <p class="formLabel1">Password</p>
+                        <input type="text" class="form-style1" autocomplete="off" />
+                    </div>
+
+                    <error id="alert"></error>
+                    <input type="submit" value="Submit" class="btn"></button>
+                </form>
+            </div>
+        </div>
+        <div class="page-four background">
+            <div class="log-in">
+                <div class="text-center">
+                    <h1 class="text-uppercase">
+                        <a href="#" class="">SHel<span>tOwn</span></a>
+                    </h1>
+                </div>
+
+                <form class="forminfo">
+
+                    <div class="form-item">
+                        <p class="formLabel">Phone Number</p>
+                        <input type="text" name="phno" id="phno" class="form-style" autocomplete="off" />
+                    </div>
+                    <div class="form-item">
+
+                        <div class="form-group has-feedback">
+                            <p class="formLabel">OTP</p>
+                            <input type="text" name="OTP" id="OTP" class="form-style ">
+
+
+
+                            <!-- <span class="glyphicon glyphicon-eye-open form-control-feedback" id="eye"></span> -->
+                        </div>
+
+
+                        <a href="#" class="text-uppercase">
+                            <div class="form-item">
+
+                                <!-- <p class="pull-left"><a href="#"><small>Register</small></a></p> -->
+                                <input type="submit" class="login " value="Sign Up"><br>
+
+                            </div>
+                        </a>
+                        <div>
+                            <div class="checkboxcontainer">
+                                <input id="checkbox-1" class="checkbox-custom" name="checkbox-1" type="checkbox">
+                                <label for="checkbox-1" class="checkbox-custom-label">Signing up to the world of All-Of-Home Services, Freedom and Privacy.</label>
+
+                                <div>
+                                    <input id="checkbox-2" class="checkbox-custom" name="checkbox-2" type="checkbox">
+                                    <label for="checkbox-2" class="checkbox-custom-label">I am a property owner</label>
+                                </div>
+                            </div>
+                            <div class="termscontainer">
+                                <p class="formLabel">By continuing you agree to our
+
+                                </p>
+                                <a href=" # "> Terms & Conditions Policies</a>
+                            </div>
+
+                        </div>
+                </form>
+
+                </div>
+
+                <div class="back">
+                    <!-- <h2 class="text-uppercase text-center1 text-success">Create Account</h2> -->
+                    <h3 class="text-center2 text-uppercase text-success"><img src="pexels-ketut-subiyanto-4247769.jpg"></h3>
+                    <div class="validation"></div>
+                </div>
+            </div>
+        </div>
+        <!-- script files -->
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript">
+            var password = document.getElementById('password');
+
+            function check(elem) {
+                if (elem.value.length > 0) {
+                    if (elem.value != password.value) {
+                        document.getElementById('alert').innerText = "Confirm Password do not match";
+
+                    }
+                }
+            }
+        </script>
+        <script type="text/javascript">
+            /**/
+            window.onload = function() {
+                // start variables
+                var book = document.getElementsByClassName("book")[0],
+                    pages = ["page-one", "page-two", "page-three", "page-four"],
+                    inputs = document.querySelectorAll("input");
+                // end variables
+                // get page functuion
+                function get_page(page_num_par) {
+                    return document.getElementsByClassName(page_num_par);
+                }
+
+                // page three next btn
+                get_page(pages[2])[0].querySelectorAll("form .btn")[0].onclick = function(e) {
+                        e.preventDefault();
+                        // get_page(pages[2])[0].classList.add("open","z-index-next");
+                        // get_page(pages[3])[0].classList.add("z-index-prev");
+                    }
+                    // page four sign up
+                get_page(pages[3])[0].querySelectorAll("form a")[0].onclick = function(e) {
+                    e.preventDefault();
+                    get_page("page-four")[0].classList.add("open", "z-index-next");
+                    book.classList.add("move-left"); //move book to left -250
+                    book.classList.remove("move-right");
+                }
+            }
+        </script>
+</body>
+
+</html>
